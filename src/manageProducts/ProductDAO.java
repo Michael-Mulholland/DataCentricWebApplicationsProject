@@ -1,4 +1,4 @@
-package DataCentricProject;
+package manageProducts;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -12,6 +12,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import manageStores.Stores;
 
 public class ProductDAO {
 	
@@ -61,5 +63,35 @@ public class ProductDAO {
 		// return the products
 		return product;
 	}
+	
+	// Adds a product to the database
+	public void addProduct(Products products) throws Exception {
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		
+		myConn = mysqlDS.getConnection();
+		String sql = "insert into product (prodName, price) values (?, ?)";
+		myStmt = myConn.prepareStatement(sql);
+		//myStmt.setInt(1, products.getStoreId());
+		myStmt.setString(1, products.getProductName());
+		myStmt.setDouble(2, products.getProductPrice());
+		// syso for error checking
+		// prints out in console - Then copy and try in mySQL
+		System.out.println(myStmt);
+		myStmt.execute();			
+	}
 
+	public void delete(int productID) throws SQLException {
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		
+		myConn = mysqlDS.getConnection();
+		String sql = "delete from product where pid = ?";
+		myStmt = myConn.prepareStatement(sql);
+		myStmt.setInt(1, productID);
+		System.out.println(myStmt);
+		myStmt.execute();			
+	}
 }

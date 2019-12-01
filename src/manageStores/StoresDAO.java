@@ -1,4 +1,4 @@
-package DataCentricProject;
+package manageStores;
 
 import java.sql.Connection;
 import java.sql.Date;

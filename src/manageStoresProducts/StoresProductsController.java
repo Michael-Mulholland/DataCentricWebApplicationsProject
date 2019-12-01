@@ -1,4 +1,4 @@
-package DataCentricProject;
+package manageStoresProducts;
 
 import java.util.ArrayList;
 

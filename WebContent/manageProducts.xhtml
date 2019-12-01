@@ -7,10 +7,48 @@
 		<title>Manage Products Page</title>
 	</h:head>
 	
+	<!-- run before the page is displayed - looks for a class called 
+	productController (create an instance of it) and is it a ManagedBean? -->
+	<f:metadata>
+		<f:event type="preRenderView"
+			listener="#{productsController.loadProductDetails()}" />
+	</f:metadata>
+	
+	<!-- css folder -->
+	<h:outputStylesheet library="css" name="tables.css"/>
+	
 	<h:body>
 		<h3>Manage Products</h3>
 		<h:form>
-			<h:commandButton value="OK" action="index" />
+		
+		<h:dataTable value="#{productsController.products}" var="p"
+			 headerClass="table-header"
+			 rowClasses="table-odd-row,table-even-row">
+			 
+			<h:column>
+			 	<f:facet name="header">Store ID</f:facet>
+			 	#{p.storeId}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Product ID</f:facet>
+			 	#{p.productId}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Name</f:facet>
+			 	#{p.productName}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Price</f:facet>
+			 	#{p.productPrice}
+			</h:column>				
+			<h:column>
+				<f:facet name="header">Action</f:facet>
+				<h:commandLink value="Delete -" action="#{productsController.delete(p.productId)}"></h:commandLink>
+				<h:commandLink value=" Add Product" action="addProduct"></h:commandLink>
+			</h:column>
+		</h:dataTable>		
+			<br></br>
+		<h:commandLink value="Home" action="index"></h:commandLink>
 		</h:form>
 	</h:body>
 </html>

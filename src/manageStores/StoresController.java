@@ -1,4 +1,4 @@
-package DataCentricProject;
+package manageStores;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
@@ -47,13 +47,13 @@ public class StoresController {
 	
 	// sends product to a method in DAO
 	public String addStore(Stores s) {
-		System.out.println(s.getStoreName() + " " + s.getStoreFounded());
+		//System.out.println(s.getStoreName() + " " + s.getStoreFounded());
 		try {
 			dao.addStore(s);
-			return "index"; // when ok button pressed on addStore page - returns to the index page
+			return "manageStores"; // when ok button pressed on addStore page - returns to the index page
 		} 
 		catch (SQLIntegrityConstraintViolationException e) {
-			FacesMessage message = new FacesMessage("Error: Store name already exists");
+			FacesMessage message = new FacesMessage("Error: Store "+ s.getStoreName() + " already exists");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null; // if an exception, stays on the same page
 		}
@@ -65,13 +65,14 @@ public class StoresController {
 	}
 	
 	// delete a product from the database
-	public void delete(int storeId){
-		System.out.println("Delete store with ID: " + storeId);
+	public void delete(int storeId, String storeName){
+		//System.out.println("Delete store with ID: " + storeId);
 		
 		try {
 			dao.delete(storeId);		
 		} catch (Exception e) {
-			// TODO: handle exception
+			FacesMessage message = new FacesMessage("Error: Store "+ storeName + " has not been deleted from MySQL DB, it contains products");
+			FacesContext.getCurrentInstance().addMessage(null, message);
 		}	
 	}
 }

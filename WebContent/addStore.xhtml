@@ -10,23 +10,19 @@
 </h:head>
 
 <h:body>
+	<h:messages globalOnly="true"/>
 	<h3>Add Store</h3>
 	<h:form>
+		
+		Store Name: <h:inputText value="#{stores.storeName}" id="name" required="true" requiredMessage="Name is mandatory"/><br></br>
+		<h:message for="name"/><br></br><br></br>
 	
-		<h:messages globalOnly="true"/>
+		Founded: <h:inputText value="#{stores.storeFounded}" id="founded" required="true" requiredMessage="Founded is mandatory"/><br></br>
+		<h:message for="founded"/><br></br><br></br>
 	
-	
-		<br></br>
-		Store Name: <h:inputText value="#{stores.storeName}" id="name" required="true" requiredMessage="Name is mandatory"/>
-		<h:message for="name"/><br></br>
-		<br></br>
-		Founded: <h:inputText value="#{stores.storeFounded}" id="founded" required="true" requiredMessage="Founded is mandatory"/>
-		<h:message for="founded"/><br></br>
-		<br></br>
+		<h:commandButton value="Add" action="#{storesController.addStore(stores)}" /><br></br><br></br>
 		<h:commandLink value="Home Stores" action="manageStores"></h:commandLink>
 	
-		<h:commandButton value="Add" action="#{storesController.addStore(stores)}" />
-
 	</h:form>
 </h:body>
 </html>

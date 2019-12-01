@@ -1,4 +1,4 @@
-package DataCentricProject;
+package manageStoresProducts;
 
 import javax.faces.bean.ManagedBean;
 
