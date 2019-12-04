@@ -71,14 +71,13 @@ public class ProductDAO {
 		ResultSet myRs = null;
 		
 		myConn = mysqlDS.getConnection();
-		String sql = "insert into product (prodName, price) values (?, ?)";
+		String sql = "insert into product (sid, prodName, price) values (?, ?, ?)";
 		myStmt = myConn.prepareStatement(sql);
-		//myStmt.setInt(1, products.getStoreId());
-		myStmt.setString(1, products.getProductName());
-		myStmt.setDouble(2, products.getProductPrice());
+		myStmt.setInt(1, products.getStoreId());
+		myStmt.setString(2, products.getProductName());
+		myStmt.setDouble(3, products.getProductPrice());
 		// syso for error checking
 		// prints out in console - Then copy and try in mySQL
-		System.out.println(myStmt);
 		myStmt.execute();			
 	}
 
@@ -91,7 +90,6 @@ public class ProductDAO {
 		String sql = "delete from product where pid = ?";
 		myStmt = myConn.prepareStatement(sql);
 		myStmt.setInt(1, productID);
-		System.out.println(myStmt);
 		myStmt.execute();			
 	}
 }

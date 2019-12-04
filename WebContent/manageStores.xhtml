@@ -12,6 +12,7 @@
 <f:metadata>
 	<f:event type="preRenderView"
 		listener="#{storesController.loadStoreDetails()}" />
+	
 </f:metadata>
 
 <!-- css folder -->
@@ -40,12 +41,15 @@
 			 	#{s.storeFounded}
 			</h:column>
 			<h:column>
-				<f:facet name="header">Action</f:facet>
-				<h:commandLink value="Delete" action="#{storesController.delete(s.storeId, s.storeName)}"></h:commandLink>
+				<f:facet name="header">Show Products</f:facet>
 				<h:commandLink value=" Show Products" action="storeProductDetails"></h:commandLink>
 			</h:column>
+			<h:column>
+				<f:facet name="header">Delete Product</f:facet>
+			 	<h:commandLink value="Delete" action="#{storesController.delete(s.storeId, s.storeName)}"></h:commandLink>
+			</h:column>
 		</h:dataTable>
-
+			
 		<br></br>
 
 		<h:commandLink value="Home" action="index"></h:commandLink>

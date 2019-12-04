@@ -47,7 +47,7 @@ public class StoresController {
 	
 	// sends product to a method in DAO
 	public String addStore(Stores s) {
-		//System.out.println(s.getStoreName() + " " + s.getStoreFounded());
+
 		try {
 			dao.addStore(s);
 			return "manageStores"; // when ok button pressed on addStore page - returns to the index page
@@ -58,7 +58,6 @@ public class StoresController {
 			return null; // if an exception, stays on the same page
 		}
 		catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null; // if an exception, stays on the same page
 		}

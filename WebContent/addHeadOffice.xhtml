@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	
+<h:head>
+	<title>Add Head Office Page</title>
+</h:head>
 
-</body>
+<h:body>
+	<h:messages globalOnly="true"/>
+	<h3>Add Head Office</h3>
+	<h:form>
+		
+		Store ID: <h:inputText value="#{storeHeadOffice.id}" id="id" required="true" requiredMessage="Name is mandatory"/><br></br>
+		<h:message for="id"/><br></br><br></br>
+	
+		Location: <h:inputText value="#{storeHeadOffice.location}" id="location" required="true" requiredMessage="Founded is mandatory"/><br></br>
+		<h:message for="location"/><br></br><br></br>
+	
+		<h:commandButton value="Add" action="#{storesHeadOfficeController.addHeadOffice(storeHeadOffice, storeHeadOffice.id)}" /><br></br><br></br>
+		<h:commandLink value="Home Stores" action="manageHeadOffices"></h:commandLink>
+	
+	</h:form>
+</h:body>
 </html>

@@ -16,6 +16,9 @@
 	<h:messages globalOnly="true"/>
 	<h3>Add Product</h3>
 	<h:form>
+	
+		Store ID: <h:inputText value="#{products.storeId}" id="id" required="true" requiredMessage="Name is mandatory"/><br></br>
+		<h:message for="id"/><br></br><br></br>
 		
 		Product Name: <h:inputText value="#{products.productName}" id="name" required="true" requiredMessage="Name is mandatory"/><br></br>
 		<h:message for="name"/><br></br><br></br>

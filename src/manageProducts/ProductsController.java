@@ -57,8 +57,8 @@ public class ProductsController {
 			return "manageProducts"; // when ok button pressed on addStore page - returns to the index page
 		} 
 		catch (SQLIntegrityConstraintViolationException e) {
-			//FacesMessage message = new FacesMessage("Error: Product "+ p.getProductName() + " already exists");
-			//FacesContext.getCurrentInstance().addMessage(null, message);
+			FacesMessage message = new FacesMessage("Error: Store ID "+ p.getStoreId() + " does not exists");
+			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null; // if an exception, stays on the same page
 		}
 		catch (Exception e) {

@@ -26,6 +26,8 @@ public class StoresProductsDAO {
 	}
 		
 	public ArrayList<StoresProducts> loadStoreProductDetails() throws Exception {
+		
+		StoresProducts s = new StoresProducts();
 
 		Connection myConn = null;
 		Statement myStmt = null;
@@ -34,7 +36,7 @@ public class StoresProductsDAO {
 		myConn = mysqlDS.getConnection();
 
 		// Query
-		String sql = "select s.id, s.name, s.founded, p.pid, p.prodName, p.price from store s inner join product p on s.id = p.sid";
+		String sql = "select s.id, s.name, s.founded, p.pid, p.prodName, p.price from store s inner join product p on s.id = p.sid where s.id";
 
 		System.out.println(sql);
 		

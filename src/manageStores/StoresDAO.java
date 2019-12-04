@@ -73,7 +73,7 @@ public class StoresDAO {
 		myStmt.setString(2, store.getStoreFounded());
 		// syso for error checking
 		// prints out in console - Then copy and try in mySQL
-		System.out.println(myStmt);
+		//System.out.println(myStmt);
 		myStmt.execute();			
 	}
 	
