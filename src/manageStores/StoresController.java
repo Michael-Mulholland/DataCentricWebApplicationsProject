@@ -8,12 +8,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import manageStoresProducts.StoresProducts;
+
 @ManagedBean
 @SessionScoped
 public class StoresController {
 	// stores products returned from DAO class
 	ArrayList<Stores> stores;
-	
+	ArrayList<StoresProducts> storesProducts;
+
 	// instance of DAO
 	StoresDAO dao;
 
@@ -28,8 +31,8 @@ public class StoresController {
 		}
 	}
 	
-	public String loadStoreDetails() {
-		
+	// load store details
+	public String loadStoreDetails() {	
 		// pass call onto dao in the StoresDAO class
 		try {
 			// dao returns an ArrayList of stores and saves them to stores which is created above
@@ -41,6 +44,7 @@ public class StoresController {
 		return null;
 	}
 
+	// get stores and return them
 	public ArrayList<Stores> getStores() {
 		return stores;
 	}

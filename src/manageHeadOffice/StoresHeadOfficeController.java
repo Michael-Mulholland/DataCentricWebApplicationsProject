@@ -21,7 +21,7 @@ public class StoresHeadOfficeController {
 	
 	// instance of DAO
 	MongoDAO dao;
-
+	
 	public StoresHeadOfficeController() {
 		super();
 		
@@ -52,6 +52,7 @@ public class StoresHeadOfficeController {
 
 		try {
 			// if in mysql db then do below
+			//boolean result = mysqlDao.checkMysqlId(id);
 			dao.addHeadOffice(office);
 	
 			return "manageHeadOffices"; // when ok button pressed on addStore page - returns to the index page

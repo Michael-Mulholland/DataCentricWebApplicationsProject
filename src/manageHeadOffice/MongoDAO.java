@@ -53,7 +53,7 @@ public class MongoDAO {
 		
 	}
 
-	public boolean checkHeadOfficeID(int id) {
+/*	public boolean checkHeadOfficeID(int id) {
 		
 		boolean result = false;
 		
@@ -88,4 +88,5 @@ public class MongoDAO {
 		mongoClient.close();	
 		return result;
 	}
+*/
 }

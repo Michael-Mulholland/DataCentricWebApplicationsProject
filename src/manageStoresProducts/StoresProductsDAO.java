@@ -24,10 +24,11 @@ public class StoresProductsDAO {
 		String jndiName = "java:comp/env/shops";
 		mysqlDS = (DataSource) context.lookup(jndiName);
 	}
-		
+	
+	// load products from selected store
 	public ArrayList<StoresProducts> loadStoreProductDetails() throws Exception {
 		
-		StoresProducts s = new StoresProducts();
+		//StoresProducts s = new StoresProducts();
 
 		Connection myConn = null;
 		Statement myStmt = null;

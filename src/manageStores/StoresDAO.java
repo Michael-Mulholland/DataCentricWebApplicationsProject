@@ -1,13 +1,11 @@
 package manageStores;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -24,6 +22,7 @@ public class StoresDAO {
 		mysqlDS = (DataSource) context.lookup(jndiName);
 	}
 		
+	// load store details
 	public ArrayList<Stores> loadStoreDetails() throws Exception {
 
 		Connection myConn = null;
@@ -59,7 +58,7 @@ public class StoresDAO {
 		// return the products
 		return stores;
 	}
-	
+		
 	// Adds a store to the database
 	public void addStore(Stores store) throws Exception {
 		Connection myConn = null;
